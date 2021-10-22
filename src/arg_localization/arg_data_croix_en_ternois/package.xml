@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>arg_data_croix_en_ternois</name>
+  <version>0.0.0</version>
+  <description>The arg_data_croix_en_ternois package</description>
+
+  <maintainer email="markus.schratter@v2c2.at">MS</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+</package>
