@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="map_to_pmap" args="0 0 0 0 0 0 map pmap 100" />
+</launch>
