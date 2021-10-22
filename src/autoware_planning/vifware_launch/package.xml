@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>vifware_launch</name>
+  <version>0.0.0</version>
+  <description>The vifware_launch package</description>
+
+  <maintainer email="kl@v2c2.at">kl</maintainer>
+
+  <license>V2C2</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+</package>

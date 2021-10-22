@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="trajectory_tracking_controller" default="pure_pursuit"/>   <!-- pure_pursuit, mpc_follower -->
+
+
+
+  <!-- rosrun waypoint_follower pure_pursuit -->
+  <group if="$(eval trajectory_tracking_controller == 'pure_pursuit')">
+    <include file="$(find vifware_launch)/launch/autoware/vifware_pure_pursuit.launch"/>
+  </group>
+
+
+  <!-- rosrun waypoint_follower mpc -->
+  <group if="$(eval trajectory_tracking_controller == 'mpc_follower')">
+    <include file="$(find vifware_launch)/launch/autoware/vifware_mpc_follower.launch"/>
+  </group>
+
+</launch>

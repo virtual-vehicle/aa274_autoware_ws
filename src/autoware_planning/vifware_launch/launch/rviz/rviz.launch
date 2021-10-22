@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="rviz_displayed" default="true"/>
+  
+  <node if="$(eval rviz_displayed == true)" pkg="rviz" type="rviz" name="rviz_vifware" respawn="true" output="screen" args="-d $(find vifware_launch)/launch/rviz/Open_Planner_config.rviz">
+    <remap from="/move_base_simple/goal" to="/move_base_simple/goal_map" />
+  </node>
+
+</launch>

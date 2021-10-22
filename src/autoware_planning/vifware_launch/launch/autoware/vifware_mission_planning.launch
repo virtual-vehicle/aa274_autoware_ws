@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- setting op_global_planner parameters -->
+  <arg name="pathDensity" default="0.75" /> <!-- distance between each two waypoints-->
+  <arg name="enableSmoothing" default="true" /> <!-- 1 or 0 -->
+  <arg name="enableLaneChange" default="false" /> <!-- 1 or 0 -->
+  <arg name="enableRvizInput" default="true" /> <!-- 1 or 0 -->
+  <arg name="enableReplan" default="false" /> <!-- 1 or 0 -->	
+  <arg name="velocitySource" default="1" /> <!-- read velocities from (0- Odometry, 1- autoware current_velocities, 2- car_info) "" -->
+  <arg name="mapSource" default="0" /> <!-- Autoware=0, Vector Map Folder=1, kml file=2 -->
+  <arg name="mapFileName" default="" /> <!-- incase of kml map source -->
+  <arg name="enableDynamicMapUpdate" default="false" />	
+
+  <!-- op_global_planner -->
+  <include file="$(find op_global_planner)/launch/op_global_planner.launch">
+    <arg name="pathDensity" value="$(arg pathDensity)" />
+    <arg name="enableSmoothing" value="$(arg enableSmoothing)" />
+    <arg name="enableLaneChange" value="$(arg enableLaneChange)" />
+    <arg name="enableRvizInput" value="$(arg enableRvizInput)" />
+    <arg name="enableReplan" value="$(arg enableReplan)" />
+    <arg name="velocitySource" value="$(arg velocitySource)" />
+    <arg name="mapSource" value="$(arg mapSource)" />
+    <arg name="mapFileName" value="$(arg mapFileName)" />
+    <arg name="enableDynamicMapUpdate" value="$(arg enableDynamicMapUpdate)" />
+  </include>
+
+</launch>

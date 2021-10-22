@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- 
+    Launch file for starting:
+
+      vifware_autoware.launch
+
+      - Use GUI to start mission planning, 
+      - Set start (2D Pose Estimate) and goal (2D Nav Goal) position in Rviz
+      - Use GUI to start motion planning
+  -->
+
+
+  <param name="/use_sim_time" value="false" />
+
+  <!-- Autoware GUI -->
+  <node pkg="runtime_manager" type="runtime_manager_dialog.py" name="autoware_gui" respawn="true" output="screen"/>
+
+
+  
+  <include file="$(find vifware_launch)/launch/vifware_autoware.launch">
+    <arg name="sim_mode" value="true"/>
+    <arg name="rviz_displayed" value="true"/>
+  </include>
+  
+  <!-- start GUI to activate / deactivate Mission and Motion planner -->
+  <node pkg="vifware_launch" type="vehicle_control_gui.py" name="vehicle_control_gui" output="screen" />
+
+
+
+
+  <!-- setting op_perception_simulator parameters -->
+  <arg name="simObjNumber" default="5" />
+  <arg name="GuassianErrorFactor" default="0" />
+  <arg name="pointCloudPointsNumber" default="75" />
+  
+  <!-- op_perception_simulator -->
+  <include file="$(find op_simulation_package)/launch/op_perception_simulator.launch">		
+    <arg name="simObjNumber" value="$(arg simObjNumber)" />		
+    <arg name="GuassianErrorFactor" value="$(arg GuassianErrorFactor)" />
+    <arg name="pointCloudPointsNumber" value="$(arg pointCloudPointsNumber)" />		
+  </include>
+
+
+  <!-- setting wf_simulator parameters -->
+  <arg name="initialize_source" default="RVIZ"/>
+  <arg name="lidar_height" default="1.4"/>
+
+  <!-- wf_simulator -->
+  <include file="$(find wf_simulator)/launch/wf_simulator.launch">	
+    <arg name="initialize_source" value="$(arg initialize_source)"/>
+    <arg name="lidar_height" value="$(arg lidar_height)"/>
+  </include>
+
+  <!-- DevBot model -->
+  <include file="$(find devbot_description)/launch/DevBot2.launch"/> 
+
+</launch>
+

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+
+<arg name="area_name" default="tu_graz"/>
+<arg name="vector_map_name" default="vector_map"/>
+<arg name="point_cloud_name" default="pcd"/>
+
+
+<!-- TF -->
+<include file="$(find vifware_launch)/launch/autoware/vifware_tf.launch"/>
+
+
+<!-- Point Cloud -->
+<node if="$(eval area_name == 'tu_graz')"      pkg="map_file" type="points_map_loader" name="points_map_loader" args="noupdate $(find vifware_data_tugraz)/$(arg point_cloud_name)/tugraz.pcd"/>
+
+
+<!-- Vector Map -->
+<node if="$(eval area_name == 'tu_graz')" pkg="map_file" type="vector_map_loader" name="vector_map_loader" args="
+  $(find vifware_data_tugraz)/$(arg vector_map_name)/point.csv 
+  $(find vifware_data_tugraz)/$(arg vector_map_name)/node.csv 
+  $(find vifware_data_tugraz)/$(arg vector_map_name)/line.csv 
+  $(find vifware_data_tugraz)/$(arg vector_map_name)/lane.csv 
+  $(find vifware_data_tugraz)/$(arg vector_map_name)/idx.csv 
+  $(find vifware_data_tugraz)/$(arg vector_map_name)/dtlane.csv 
+  $(find vifware_data_tugraz)/$(arg vector_map_name)/curb.csv"/>
+
+
+
+</launch>
+

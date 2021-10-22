@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- general configuration parameters -->
+  <arg name="sim_mode" default="false" />
+  <arg name="rviz_displayed" default="true"/>
+
+  <!-- map data -->
+  <arg name="area_name" default="tu_graz"/>            
+  <arg name="vector_map_name" default="vector_map"/>
+  <arg name="point_cloud_name" default="pcd"/>
+
+
+  <!-- setting vel_pose_mux parameters -->
+  <arg name="topic_pose_stamped" default="/ndt_pose" />
+  <arg name="topic_twist_stamped" default="/estimate_twist" />
+
+  <!-- vel_pose_mux -->
+  <include file="$(find autoware_connector)/launch/vel_pose_connect.launch">
+    <arg name="topic_pose_stamped" value="$(arg topic_pose_stamped)" />
+    <arg name="topic_twist_stamped" value="$(arg topic_twist_stamped)" />
+    <arg name="sim_mode" value="$(arg sim_mode)" />
+  </include>
+
+  <!-- Autoware load pointcloud map and vector map -->
+  <include file="$(find vifware_launch)/launch/autoware/vifware_map.launch">
+    <arg name="area_name" value="$(arg area_name)"/>
+    <arg name="vector_map_name" value="$(arg vector_map_name)"/>
+    <arg name="point_cloud_name" value="$(arg point_cloud_name)"/>
+  </include>
+
+  <!-- Autoware sensing -->
+  <include if="$(eval sim_mode == 'false')" file="$(find vifware_launch)/launch/autoware/vifware_sensing.launch"/>
+
+
+  <!-- Autoware Localization -->
+  <include if="$(eval sim_mode == 'false')" file="$(find vifware_launch)/launch/autoware/vifware_localization.launch">
+    <arg name="points_topic" value="/os1_cloud_node/points"/>
+  </include>
+
+
+  <!-- Transformation from RVIZ goal to a goal in the world frame, only header is changed -->
+  <node pkg="vifware_launch" type="goal_transform.py" name="goal_transform" respawn="true" output="screen"/>
+  
+  <!-- RVIZ if required -->
+  <include file="$(find vifware_launch)/launch/rviz/rviz.launch">
+    <arg name="rviz_displayed" value="$(arg rviz_displayed)"/>
+  </include>
+
+
+
+</launch>

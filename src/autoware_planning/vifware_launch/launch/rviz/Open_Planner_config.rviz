@@ -1,0 +1,1211 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Local Waypoints1/Namespaces1
+        - /Tracked Contours1/Namespaces1
+      Splitter Ratio: 0.6958039999008179
+    Tree Height: 460
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Op Flag1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: Points Map
+  - Class: integrated_viewer/ImageViewerPlugin
+    Image topic: -----
+    Lane topic: -----
+    Name: ImageViewerPlugin
+    Point size: 3
+    Point topic: -----
+    Rect topic: /detection/image_detector/objects
+  - Class: integrated_viewer/ImageViewerPlugin
+    Image topic: -----
+    Lane topic: -----
+    Name: ImageViewerPlugin
+    Point size: 3
+    Point topic: -----
+    Rect topic: /detection/image_detector/objects
+  - Class: integrated_viewer/ImageViewerPlugin
+    Image topic: -----
+    Lane topic: -----
+    Name: ImageViewerPlugin
+    Point size: 3
+    Point topic: -----
+    Rect topic: /detection/image_detector/objects
+  - Class: integrated_viewer/ImageViewerPlugin
+    Image topic: -----
+    Lane topic: -----
+    Name: ImageViewerPlugin
+    Point size: 3
+    Point topic: -----
+    Rect topic: /detection/image_detector/objects
+  - Class: integrated_viewer/ImageViewerPlugin
+    Image topic: -----
+    Lane topic: -----
+    Name: ImageViewerPlugin
+    Point size: 3
+    Point topic: -----
+    Rect topic: /detection/image_detector/objects
+  - Class: integrated_viewer/ImageViewerPlugin
+    Image topic: -----
+    Lane topic: -----
+    Name: ImageViewerPlugin
+    Point size: 3
+    Point topic: -----
+    Rect topic: /detection/image_detector/objects
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.10000000149011612
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: false
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 1000
+      Reference Frame: map
+      Value: false
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        base_link:
+          Value: true
+        chassis:
+          Value: true
+        map:
+          Value: true
+        velodyne:
+          Value: true
+        world:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        world:
+          map:
+            base_link:
+              chassis:
+                {}
+              velodyne:
+                {}
+      Update Interval: 0
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /vector_map_center_lines_rviz
+      Name: Vector Map CenterLines
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /op_destinations_rviz
+      Name: Destinations
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /simu_internal_info1
+      Name: SimuInternalInfo
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /simu_local_trajectory_1
+      Name: Trajectory Sim1
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 0.5
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 255
+      Min Color: 0; 0; 0
+      Min Intensity: 255
+      Name: Vscan Points
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Points
+      Topic: /vscan_points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Class: jsk_rviz_plugin/BoundingBoxArray
+      Enabled: false
+      Name: OP Tracked Boxes
+      Topic: /op_planner_tracked_boxes
+      Unreliable: false
+      Value: false
+      alpha: 0.800000011920929
+      color: 25; 255; 0
+      coloring: Value
+      line width: 0.10000000149011612
+      only edge: true
+      show coords: false
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /map_curbs_rviz
+      Name: OP Curbs
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz/Pose
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.5
+      Head Radius: 0.30000001192092896
+      Name: Control Pose
+      Shaft Length: 1
+      Shaft Radius: 0.10000000149011612
+      Shape: Arrow
+      Topic: /control_pose
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz/Pose
+      Color: 255; 170; 255
+      Enabled: true
+      Head Length: 0.5
+      Head Radius: 0.30000001192092896
+      Name: Current Pose
+      Shaft Length: 1
+      Shaft Radius: 0.10000000149011612
+      Shape: Arrow
+      Topic: /ndt_pose
+      Unreliable: false
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /detection_range
+      Name: Detection Range
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: false
+      Marker Topic: /trajectory_circle_mark
+      Name: PP Trajectory Mark
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /vscan_linelist
+      Name: Stixel
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        chassis:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: Vehicle Model
+      Robot Description: /robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /obj_car/obj_pose
+      Name: Object Pose
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /local_waypoints_mark
+      Name: Local Waypoints
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /waypoint_guide
+      Name: Waypoint Guide
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: false
+      Name: Laserscan Costmap
+      Topic: /ring_ogm
+      Unreliable: false
+      Use Timestamp: false
+      Value: false
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /local_trajectories_eval_rviz
+      Name: Trajectories
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /global_waypoints_mark
+      Name: Global Waypoints
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /global_waypoints_rviz
+      Name: Global Path
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /next_target_mark
+      Name: Next Waypoint Mark
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: false
+      Marker Topic: /detected_polygons
+      Name: Tracked Contours
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /AnimateGlobalPlan
+      Name: GlobalPathAnimation
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /safety_border
+      Name: Safety Box
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /astar_footprint
+      Name: Particles
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /detected_polygons
+      Name: Objects_Lidar
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /behavior_state
+      Name: Behavior State
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Buffer length: 100
+      Class: jsk_rviz_plugin/Plotter2D
+      Enabled: false
+      Name: OP Velocity
+      Show Value: true
+      Topic: ""
+      Value: false
+      auto color change: false
+      auto scale: true
+      background color: 0; 0; 0
+      backround alpha: 0
+      border: true
+      foreground alpha: 0.699999988079071
+      foreground color: 25; 255; 240
+      height: 128
+      left: 128
+      linewidth: 1
+      max color: 255; 0; 0
+      max value: 1
+      min value: -1
+      show caption: true
+      text size: 12
+      top: 128
+      update interval: 0.03999999910593033
+      width: 128
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /detection/lidar_detector/objects_markers
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /cubic_splines_viz
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 1880
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: Ouster
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 5
+      Size (m): 0.10000000149011612
+      Style: Flat Squares
+      Topic: /os1_cloud_node/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 1506.085693359375
+      Min Color: 0; 0; 0
+      Min Intensity: 7.37201452255249
+      Name: Filtered (Localization)
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Points
+      Topic: /filtered_points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 0; 0
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 1043
+      Min Color: 0; 0; 0
+      Min Intensity: 6
+      Name: no_ground
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.10000000149011612
+      Style: Flat Squares
+      Topic: /points_no_ground
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 0; 0; 255
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 918
+      Min Color: 0; 0; 0
+      Min Intensity: 7
+      Name: ground
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.10000000149011612
+      Style: Flat Squares
+      Topic: /points_ground
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: Points Cluster
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 10
+      Size (m): 0.009999999776482582
+      Style: Points
+      Topic: /points_cluster
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 0.10000000149011612
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: Points Map
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Points
+      Topic: /points_map
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /vector_map
+      Name: VectorMap
+      Namespaces:
+        curb: true
+      Queue Size: 100
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Default Light: true
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: autoware_sim_object/OpFlag
+      Flags:
+        - Name: Flag 0
+          X: -32.98651123046875
+          Y: 35.87451171875
+          Z: 0
+        - Name: Flag 1
+          X: -52.58671188354492
+          Y: 57.451568603515625
+          Z: 0
+        - Name: Flag 2
+          X: -72.34034729003906
+          Y: 50.979820251464844
+          Z: 0
+        - Name: Flag 3
+          X: -98.3438720703125
+          Y: 40.76872253417969
+          Z: 0
+        - Name: Flag 4
+          X: -33.74423599243164
+          Y: 36.59625244140625
+          Z: 0
+        - Name: Flag 5
+          X: -109.2275619506836
+          Y: 37.925540924072266
+          Z: 0
+        - Name: Flag 6
+          X: -4.7125091552734375
+          Y: 4.404892921447754
+          Z: 0
+        - Name: Flag 7
+          X: -158.32659912109375
+          Y: 20.341285705566406
+          Z: 0
+        - Name: Flag 8
+          X: -196.2997283935547
+          Y: 4.090126037597656
+          Z: 0
+        - Name: Flag 9
+          X: -233.1319580078125
+          Y: -24.036222457885742
+          Z: 0
+        - Name: Flag 10
+          X: -259.1067810058594
+          Y: -46.27670669555664
+          Z: 0
+        - Name: Flag 11
+          X: -286.108154296875
+          Y: -79.35443115234375
+          Z: 0
+        - Name: Flag 12
+          X: -310.8079833984375
+          Y: -106.01506805419922
+          Z: 0
+        - Name: Flag 13
+          X: -335.08087158203125
+          Y: -138.75552368164062
+          Z: 0
+        - Name: Flag 14
+          X: -341.3734130859375
+          Y: -143.57269287109375
+          Z: 0
+        - Name: Flag 15
+          X: -380.7937316894531
+          Y: -191.79409790039062
+          Z: 0
+        - Name: Flag 16
+          X: -400.457763671875
+          Y: -214.69427490234375
+          Z: 0
+        - Name: Flag 17
+          X: -406.965087890625
+          Y: -220.16549682617188
+          Z: 0
+        - Name: Flag 18
+          X: -36.11880874633789
+          Y: 39.426513671875
+          Z: 0
+        - Name: Flag 19
+          X: -57.056724548339844
+          Y: 59.76820373535156
+          Z: 0
+        - Name: Flag 20
+          X: -103.15481567382812
+          Y: 39.96843719482422
+          Z: 0
+        - Name: Flag 21
+          X: -9.713736534118652
+          Y: 10.136486053466797
+          Z: 0
+        - Name: Flag 22
+          X: -27.163848876953125
+          Y: 29.513154983520508
+          Z: 0
+        - Name: Flag 23
+          X: -4.2477874755859375
+          Y: 4.106417655944824
+          Z: 0
+        - Name: Flag 24
+          X: -24.444913864135742
+          Y: 26.25233268737793
+          Z: 0
+        - Name: Flag 25
+          X: -43.83128356933594
+          Y: 47.887229919433594
+          Z: 0
+        - Name: Flag 26
+          X: -37.93573760986328
+          Y: 41.312713623046875
+          Z: 0
+        - Name: Flag 27
+          X: -87.878662109375
+          Y: 45.45033645629883
+          Z: 0
+        - Name: Flag 28
+          X: -121.00663757324219
+          Y: 33.700382232666016
+          Z: 0
+        - Name: Flag 29
+          X: -151.12257385253906
+          Y: 22.97366714477539
+          Z: 0
+        - Name: Flag 30
+          X: -152.64010620117188
+          Y: 21.36446762084961
+          Z: 0
+        - Name: Flag 31
+          X: -153.76116943359375
+          Y: 20.341922760009766
+          Z: 0
+        - Name: Flag 32
+          X: -190.21934509277344
+          Y: 5.921947479248047
+          Z: 0
+        - Name: Flag 33
+          X: -194.87440490722656
+          Y: 3.770569086074829
+          Z: 0
+        - Name: Flag 34
+          X: -199.573974609375
+          Y: 1.5286650657653809
+          Z: 0
+        - Name: Flag 35
+          X: -41.350582122802734
+          Y: 45.021854400634766
+          Z: 0
+        - Name: Flag 36
+          X: -40.490821838378906
+          Y: 44.904876708984375
+          Z: 0
+        - Name: Flag 37
+          X: -43.95726776123047
+          Y: 48.03947830200195
+          Z: 0
+        - Name: Flag 38
+          X: -90.59210205078125
+          Y: 44.5013542175293
+          Z: 0
+        - Name: Flag 39
+          X: -158.2398223876953
+          Y: 20.404346466064453
+          Z: 0
+        - Name: Flag 40
+          X: -192.11758422851562
+          Y: 5.954295635223389
+          Z: 0
+        - Name: Flag 41
+          X: -193.37294006347656
+          Y: 1.1087164878845215
+          Z: 0
+        - Name: Flag 42
+          X: -211.43658447265625
+          Y: -8.999174118041992
+          Z: 0
+        - Name: Flag 43
+          X: -215.69671630859375
+          Y: -10.741438865661621
+          Z: 0
+        - Name: Flag 44
+          X: -217.44976806640625
+          Y: -11.39691162109375
+          Z: 0
+        - Name: Flag 45
+          X: -228.6172637939453
+          Y: -19.73629379272461
+          Z: 0
+        - Name: Flag 46
+          X: -264.6563415527344
+          Y: -54.54213333129883
+          Z: 0
+        - Name: Flag 47
+          X: -276.5105285644531
+          Y: -67.33697509765625
+          Z: 0
+        - Name: Flag 48
+          X: -288.1441345214844
+          Y: -80.8853530883789
+          Z: 0
+        - Name: Flag 49
+          X: -300.95989990234375
+          Y: -96.67416381835938
+          Z: 0
+        - Name: Flag 50
+          X: -317.5364685058594
+          Y: -117.81598663330078
+          Z: 0
+        - Name: Flag 51
+          X: -334.90301513671875
+          Y: -136.95692443847656
+          Z: 0
+        - Name: Flag 52
+          X: -336.63336181640625
+          Y: -139.49221801757812
+          Z: 0
+        - Name: Flag 53
+          X: -345.5956726074219
+          Y: -151.30511474609375
+          Z: 0
+        - Name: Flag 54
+          X: 14636.412109375
+          Y: 84587.7578125
+          Z: 0
+        - Name: Flag 55
+          X: 14638.89453125
+          Y: 84489.4296875
+          Z: 0
+        - Name: Flag 56
+          X: 14641.6943359375
+          Y: 84441.0546875
+          Z: 0
+        - Name: Flag 57
+          X: 14640.134765625
+          Y: 84403.59375
+          Z: 0
+        - Name: Flag 58
+          X: 14656.958984375
+          Y: 84359.375
+          Z: 0
+        - Name: Flag 59
+          X: 14662.3291015625
+          Y: 84361.421875
+          Z: 0
+        - Name: Flag 60
+          X: 14718.103515625
+          Y: 84358.7578125
+          Z: 0
+        - Name: Flag 61
+          X: 14746.9228515625
+          Y: 84378.8203125
+          Z: 0
+        - Name: Flag 62
+          X: 14744.6435546875
+          Y: 84420.359375
+          Z: 0
+        - Name: Flag 63
+          X: 14742.841796875
+          Y: 84444.5625
+          Z: 0
+        - Name: Flag 64
+          X: 14742.3828125
+          Y: 84462.0703125
+          Z: 0
+        - Name: Flag 65
+          X: 14738.7099609375
+          Y: 84487.34375
+          Z: 0
+        - Name: Flag 66
+          X: 14738.4931640625
+          Y: 84499.34375
+          Z: 0
+        - Name: Flag 67
+          X: 14739.0986328125
+          Y: 84495.09375
+          Z: 0
+        - Name: Flag 68
+          X: 14743.220703125
+          Y: 84502.0078125
+          Z: 0
+        - Name: Flag 69
+          X: 14741.5478515625
+          Y: 84528.3671875
+          Z: 0
+        - Name: Flag 70
+          X: 14738.96875
+          Y: 84574.5390625
+          Z: 0
+        - Name: Flag 71
+          X: 14741.9375
+          Y: 84613.375
+          Z: 0
+        - Name: Flag 72
+          X: 14703.2578125
+          Y: 84621.2890625
+          Z: 0
+        - Name: Flag 73
+          X: 14682.87890625
+          Y: 84620.984375
+          Z: 0
+        - Name: Flag 74
+          X: 14638.9208984375
+          Y: 84617.90625
+          Z: 0
+        - Name: Flag 75
+          X: 14637.630859375
+          Y: 84566.8203125
+          Z: 0
+        - Name: Flag 76
+          X: 14659.4716796875
+          Y: 84357.5234375
+          Z: 0
+        - Name: Flag 77
+          X: 14702.1455078125
+          Y: 84351.8203125
+          Z: 0
+        - Name: Flag 78
+          X: 14741.3515625
+          Y: 84360.7265625
+          Z: 0
+        - Name: Flag 79
+          X: 14744.38671875
+          Y: 84381.0546875
+          Z: 0
+        - Name: Flag 80
+          X: 14744.001953125
+          Y: 84389.7734375
+          Z: 0
+        - Name: Flag 81
+          X: 14742.9111328125
+          Y: 84402.1640625
+          Z: 0
+        - Name: Flag 82
+          X: 14743.06640625
+          Y: 84412.84375
+          Z: 0
+        - Name: Flag 83
+          X: 14741.69921875
+          Y: 84450.0859375
+          Z: 0
+        - Name: Flag 84
+          X: 14740.3916015625
+          Y: 84497.34375
+          Z: 0
+        - Name: Flag 85
+          X: 14744.431640625
+          Y: 84496.375
+          Z: 0
+        - Name: Flag 86
+          X: 14739.38671875
+          Y: 84523.890625
+          Z: 0
+        - Name: Flag 87
+          X: 14739.7919921875
+          Y: 84526.625
+          Z: 0
+        - Name: Flag 88
+          X: 14739.3720703125
+          Y: 84538.0859375
+          Z: 0
+        - Name: Flag 89
+          X: 14739.3330078125
+          Y: 84545.3828125
+          Z: 0
+        - Name: Flag 90
+          X: 14737.9150390625
+          Y: 84563.0078125
+          Z: 0
+        - Name: Flag 91
+          X: 14738.65234375
+          Y: 84549.3125
+          Z: 0
+        - Name: Flag 92
+          X: 14739.1435546875
+          Y: 84549.75
+          Z: 0
+        - Name: Flag 93
+          X: 14738.8701171875
+          Y: 84561.53125
+          Z: 0
+        - Name: Flag 94
+          X: 14737.48828125
+          Y: 84582.890625
+          Z: 0
+        - Name: Flag 95
+          X: 14737.1689453125
+          Y: 84588.65625
+          Z: 0
+        - Name: Flag 96
+          X: 14737.6162109375
+          Y: 84590.4453125
+          Z: 0
+        - Name: Flag 97
+          X: 14737.625
+          Y: 84594.34375
+          Z: 0
+        - Name: Flag 98
+          X: 14737.8427734375
+          Y: 84614.4609375
+          Z: 0
+        - Name: Flag 99
+          X: 14636.8173828125
+          Y: 84582.6171875
+          Z: 0
+        - Name: Flag 100
+          X: 14638.265625
+          Y: 84527.03125
+          Z: 0
+        - Name: Flag 101
+          X: 14637.9990234375
+          Y: 84436.375
+          Z: 0
+        - Name: Flag 102
+          X: 14637.90234375
+          Y: 84438.21875
+          Z: 0
+        - Name: Flag 103
+          X: 14639.353515625
+          Y: 84402.9609375
+          Z: 0
+        - Name: Flag 104
+          X: 14743.4462890625
+          Y: 84448.828125
+          Z: 0
+        - Name: Flag 105
+          X: 14742.5546875
+          Y: 84499.265625
+          Z: 0
+        - Name: Flag 106
+          X: 14740.05078125
+          Y: 84605.5234375
+          Z: 0
+        - Name: Flag 107
+          X: 14736.505859375
+          Y: 84522.09375
+          Z: 0
+        - Name: Flag 108
+          X: 14740.3828125
+          Y: 84566.8828125
+          Z: 0
+        - Name: Flag 109
+          X: 14737.876953125
+          Y: 84621.65625
+          Z: 0
+        - Name: Flag 110
+          X: 14712.0146484375
+          Y: 84621.7734375
+          Z: 0
+        - Name: Flag 111
+          X: 14741.18359375
+          Y: 84563.25
+          Z: 0
+        - Name: Flag 112
+          X: 14717.6708984375
+          Y: 84622.28125
+          Z: 0
+        - Name: Flag 113
+          X: 14703.74609375
+          Y: 84620.96875
+          Z: 0
+        - Name: Flag 114
+          X: 14739.38671875
+          Y: 84624.46875
+          Z: 0
+        - Name: Flag 115
+          X: 14716.5400390625
+          Y: 84621.84375
+          Z: 0
+        - Name: Flag 116
+          X: 14740.435546875
+          Y: 84624.5390625
+          Z: 0
+        - Name: Flag 117
+          X: 14698.103515625
+          Y: 84621.078125
+          Z: 0
+        - Name: Flag 118
+          X: 14666.5986328125
+          Y: 84621.203125
+          Z: 0
+        - Name: Flag 119
+          X: 14647.9912109375
+          Y: 84619.7421875
+          Z: 0
+        - Name: Flag 120
+          X: 14636.6748046875
+          Y: 84592.25
+          Z: 0
+  Value: true
+  Views:
+    Current:
+      Angle: -1.544999599456787
+      Class: rviz/TopDownOrtho
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Scale: 4.383768558502197
+      Target Frame: map
+      Value: TopDownOrtho (rviz)
+      X: -70.64212799072266
+      Y: -258.708984375
+    Saved:
+      - Class: rviz/ThirdPersonFollower
+        Distance: 11.532544136047363
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: ThirdPersonFollower
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.5603981018066406
+        Target Frame: base_link
+        Value: ThirdPersonFollower (rviz)
+        Yaw: 3.1303977966308594
+      - Angle: -0.04000000283122063
+        Class: rviz/TopDownOrtho
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: TopDownOrtho
+        Near Clip Distance: 0.009999999776482582
+        Scale: 10
+        Target Frame: map
+        Value: TopDownOrtho (rviz)
+        X: 0
+        Y: 0
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1025
+  Hide Left Dock: false
+  Hide Right Dock: false
+  ImageViewerPlugin:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd000000040000000000000156000003a7fc0200000019fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000220049006d0061006700650056006900650077006500720050006c007500670069006e0000000028000002110000008400fffffffc0000003d00000209000000c900fffffffa000000020100000003fb0000000a0049006d0061006700650000000000ffffffff0000000000000000fb0000000c00430061006d0065007200610000000000ffffffff0000000000000000fb000000100044006900730070006c0061007900730100000000000001360000015600fffffffb0000000a00560069006500770073010000024c00000198000000a400fffffffb0000000a0049006d006100670065010000028e000000d20000000000000000fb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000120049006d006100670065005f0072006100770000000000ffffffff0000000000000000fb0000000c00430061006d006500720061000000022f000001710000000000000000fb000000120049006d00610067006500200052006100770100000421000000160000000000000000fb0000000a0049006d00610067006501000002f4000000cb0000000000000000fb0000000a0049006d0061006700650100000431000000d70000000000000000fb0000000a0049006d00610067006501000003d7000001310000000000000000fb000000100049006d0061006700650052006100770000000234000001500000000000000000fb0000000c00430061006d00650072006100000002db000000c50000000000000000fb000000100049006d00610067006500520061007700000002ff000000a10000000000000000fb000000220049006d0061006700650056006900650077006500720050006c007500670069006e02000001b1000000d90000028d00000202fb000000220049006d0061006700650056006900650077006500720050006c007500670069006e0200000432000001990000028d00000204fb000000220049006d0061006700650056006900650077006500720050006c007500670069006e02000004d2000000c00000028d000001effb000000220049006d0061006700650056006900650077006500720050006c007500670069006e02000001c1000001420000036a00000268fb000000220049006d0061006700650056006900650077006500720050006c007500670069006e02000004cb000000b10000028d0000023c000000010000016300000378fc0200000002fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000073f000000a8fc0100000002fb0000000a00560069006500770073030000004e00000080000002e100000197fb00000020004f00750073007400650072005f0049006e00740065006e00730069007400790000000000ffffffff000000000000000000000003000007800000005cfc0100000002fb0000000800540069006d0065000000000000000780000002eb00fffffffb0000000800540069006d00650100000000000004500000000000000000000005e1000003a700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1853
+  X: 67
+  Y: 27

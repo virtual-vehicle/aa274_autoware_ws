@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+<!-- ego_vehicle to lidar tf 
+<node pkg="tf"  type="static_transform_publisher" name="base_link_lidar" args="0 0 -2 0 0 1 0 /base_link /os1_lidar 10" /> -->
+
+<!-- os1 lidar to os1 sensor 
+<node pkg="tf"  type="static_transform_publisher" name="lidar_os1_sensor" args="0 0 0 0 0 0 1 /os1_lidar /os1_sensor 10" /> -->
+
+
+<!-- used for gpsfix to world - should be within map folder in future -->
+<!-- 33T -->
+  <node pkg="tf" type="static_transform_publisher" name="utm_to_map" args="0 0 0 0 0 0 /world /map 20"/>
+
+  <!--node pkg="tf" type="static_transform_publisher" name="base_to_footprint" args="0 0 -0.5 0 0 1 /base_link /base_footprint 20"/-->
+
+  <!--node pkg="tf"  type="static_transform_publisher" name="map_to_mobility" args="0 0 0 0 0 0 /map /mobility 10" /-->
+
+</launch>
