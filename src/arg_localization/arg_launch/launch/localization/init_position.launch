@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="x" default="32.7"/>
+  <arg name="y" default="-90.2"/>
+  <arg name="z" default="0"/>
+
+  <arg name="orientation_x" default="0.0"/>
+  <arg name="orientation_y" default="0.0"/>
+  <arg name="orientation_z" default="0.39"/>
+  <arg name="orientation_w" default="0.917"/>
+
+  <node pkg="arg_launch" type="set_initial_pose.py" name="init_position" output="screen" respawn="false">
+    <param name="x" value="$(arg x)"/>
+    <param name="y" value="$(arg y)"/>
+    <param name="z" value="$(arg z)"/>
+    <param name="orientation_x" value="$(arg orientation_x)"/>
+    <param name="orientation_y" value="$(arg orientation_y)"/>
+    <param name="orientation_z" value="$(arg orientation_z)"/>
+    <param name="orientation_w" value="$(arg orientation_w)"/>
+  </node>
+
+</launch>

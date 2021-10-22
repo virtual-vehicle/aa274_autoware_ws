@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<launch>
+
+  <param name="/use_sim_time" value="true" />
+
+  <!-- general configuration parameters -->
+  <arg name="lidar_localization" default="false"/>  <!-- false: use gps_local/pose for localization (with measurment noise) -->
+
+
+
+
+  <!--GPS based localization -->
+  <group unless="$(arg lidar_localization)" >
+    <!-- add a noise to the gps ground truth (gps_local/pose), instead of the lidar localization  -->
+    <include file="$(find arg_launch)/launch/gps_to_localization_pose.launch" />
+
+  </group>
+
+
+  <!-- Lidar based localization  -->
+  <group if="$(arg lidar_localization)" >
+
+    <!-- transform lidar raw data to point cloud -->
+    <include file="$(find ouster_ros)/os1_raw.launch"/>
+
+    <!-- points downsampler -->
+    <!-- if lidar localization is in use, you can change the parameter of the voxel_leaf_size e.g. 0.5, 1.0, 2.0, etc. -->
+    <!-- hack to modify easily the voxel_leaf_size, NOT THE BEST PRACTICE -->
+    <node pkg="rostopic" type="rostopic" name="config_voxel_grid_filter"
+            args="pub -l /config/voxel_grid_filter autoware_config_msgs/ConfigVoxelGridFilter
+            '{ voxel_leaf_size: 2.0, measurement_range: 200.0}' "
+    />
+    <include file="$(find points_downsampler)/launch/points_downsample.launch">
+      <arg name="points_topic" value="/os1_cloud_node/points" />
+    </include>
+
+    <!-- ndt_matching -->
+    <include  file="$(find arg_launch)/launch/localization/ndt_localization.launch">
+      <arg name="use_odom" default="true" />
+      <arg name="points_topic_in" value="/filtered_points" />    
+      <arg name="publish_tf" value="false" /> 
+    </include>
+
+  </group>
+
+
+  <!-- ekf_localizer -->
+  <include file="$(find arg_launch)/launch/ekf_localizer.launch" />
+
+
+    <!-- Publish TF map -> base_link -->
+    <include  file="$(find arg_launch)/launch/localization/map_base_link_tf_broadcaster.launch">
+        <arg name="topic_name" value="/gps_local/pose"/>
+    </include>
+
+
+
+  <!-- DevBot model -->
+  <include file="$(find devbot_description)/launch/DevBot2.launch"/> 
+  <!-- base_link to os1_sensor -->
+  <node pkg="tf" type="static_transform_publisher" name="base_link_os1_lidar" args="0.118 0.0 0.731 3.03 0 0  /base_link /os1_lidar 10"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_os1_sensor" args="0.118 0.0 0.731 0 0 0 /base_link /os1_sensor 10"/>
+
+
+  <!-- Load point cloud map -->
+  <node pkg="map_file" type="points_map_loader" name="points_map_loader" args="noupdate $(find arg_data_croix_en_ternois)/pcd/race_track.pcd"/>
+
+   
+  <!-- Set start position based on GPS -->
+  <include file="$(find arg_launch)/launch/localization/init_position.launch" />
+
+  <!-- RVIZ  -->
+  <include file="$(find arg_launch)/launch/rviz/rviz_Devbot.launch">
+    <arg name="rviz_displayed" value="true"/>
+  </include>
+
+  <!-- Script to evaluate the localization performance -->
+  <node pkg="arg_launch" type="localization_evaluation.py" name="localization_evaluation" output="log" respawn="true"/>
+
+
+</launch>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot name="eufs" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+  <!-- BASE_LINK -->
+  <link name="base_link">
+   </link>
+
+  <!-- CHASSIS -->
+  <link name="chassis">
+    <inertial>
+      <mass value="125.0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia  ixx="1.391" ixy="0.004"  ixz="0.0"  iyy="6.853"  iyz="0.0"  izz="6.125" />
+    </inertial>
+    <visual>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <geometry>
+	     <mesh filename="package://devbot_description/meshes/DevbotV2.dae"/>
+       </geometry>
+    </visual>
+    <collision>
+       <origin xyz="0 0 0" rpy="0 0 0 " />
+       <geometry>
+         <mesh filename="package://devbot_description/meshes/DevbotV2.dae"/>
+       </geometry>
+    </collision>
+  </link>
+
+  <joint name="chassis_joint" type="fixed">
+     <origin xyz="-0.59 0.0 -0.11" rpy="0 0 0.0" />
+     <parent link="base_link"/>
+     <child link="chassis"/>
+   </joint>
+
+  
+
+
+</robot>
+

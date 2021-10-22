@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="rviz_displayed" default="true"/>
+  
+  <node if="$(eval rviz_displayed == true)" pkg="rviz" type="rviz" name="rviz_arg" respawn="true" output="screen" args="-d $(find arg_launch)/launch/rviz/DevBot_localization.rviz" />
+
+</launch>

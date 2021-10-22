@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Car URDF -->
+  <param command="$(find xacro)/xacro '$(find devbot_description)/urdf/roborace.urdf.xarco' --inorder" name="robot_description"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+</launch>

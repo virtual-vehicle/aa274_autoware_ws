@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="directory" />
+
+    <node pkg="map_file" type="points_map_loader" name="points_map_loader" output="screen" respawn="true" respawn_delay="0" args="dir $(arg directory)/pcd/">
+        <param name="global_map_frame_id" value="pmap"/>
+    </node>
+
+    <include file="$(arg directory)/pcd/pmap_tf.launch" />
+
+</launch>
