@@ -44,7 +44,7 @@ catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release
 # Install workspace for AA274 lecture
 Clone repository
 ```
-git clone https://github.com/virtual-vehicle-research/aa274_autoware_ws.git ~/ros/aa274_autoware_ws
+git clone https://github.com/virtual-vehicle/aa274_autoware_ws.git ~/ros/aa274_autoware_ws
 cd ~/ros/aa274_autoware_ws
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 ```
