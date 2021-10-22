@@ -1,8 +1,9 @@
 # Autoware "Hands-On"
 
-- Graz University of Technology 
-- Stanford Lecture AA274 
+Stanford Lecture AA274 / Graz University of Technology 
 
+
+![Autonomous Racing Graz / Localization](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/docs/ARG_Localization.jpg?raw=true "Autonomous Racing Graz / Localiztion")
 
 
 ## Preconditions
