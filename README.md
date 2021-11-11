@@ -46,6 +46,7 @@ Clone repository
 ```
 git clone https://github.com/virtual-vehicle/aa274_autoware_ws.git ~/ros/aa274_autoware_ws
 cd ~/ros/aa274_autoware_ws
+source ~/ros/autoware.ai/devel/setup.bash
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 ```
 Setup for environment which includes several aliases, environment variables, and sources 
