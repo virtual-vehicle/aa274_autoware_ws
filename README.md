@@ -92,7 +92,10 @@ roslaunch arg_launch Play_rosbag.launch
 You must hit the **space key** to start to play the rosbag.
 
 ### Possible modifications can be performed:
-
+- [Adding noise to the GPS data](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/src/arg_localization/arg_launch/launch/Devbot_localization.launch#L14)
+- [Activate/deactivate the input pose for the EKF](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/src/arg_localization/arg_launch/launch/Devbot_localization.launch#L65)
+- [Activate/deactivate the input twist for the EKF](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/src/arg_localization/arg_launch/launch/Devbot_localization.launch#L72)
+- [Modify the standard deviation parameters for the input pose](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/src/arg_localization/arg_launch/launch/Devbot_localization.launch#L76)
 
 
 # Demo Path Planning 
