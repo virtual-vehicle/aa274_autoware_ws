@@ -89,6 +89,9 @@ roslaunch arg_launch Devbot_localization.launch lidar_localization:=true
 ```
 roslaunch arg_launch Play_rosbag.launch
 ```
+You must hit the **space key** to start to play the rosbag.
+
+### Possible modifications can be performed:
 
 
 
