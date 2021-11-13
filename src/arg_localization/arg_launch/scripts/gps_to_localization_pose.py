@@ -25,15 +25,18 @@ class GPSToLocalizationPose:
       self.yaw_sigma = rospy.get_param('~pose_stddev_yaw', 0.0)
       self.yaw_mu = rospy.get_param('~pose_mu_yaw', 0.0)
 
-
+      self.x_noise = np.random.normal(self.x_y_mu, self.x_y_sigma, size=200)
+      self.y_noise = np.random.normal(self.x_y_mu, self.x_y_sigma, size=200)
+      self.yaw_noise = np.random.normal(self.yaw_mu, self.yaw_sigma, size=200)
 
     def gpsPoseCallBack(self, data):
 
-      x_y_noise = np.random.normal(self.x_y_mu, self.x_y_sigma, size=1)
       yaw_noise = np.random.normal(self.yaw_mu, self.yaw_sigma, size=1)
 
-      data.pose.position.x = data.pose.position.x + x_y_noise
-      data.pose.position.y = data.pose.position.y + x_y_noise
+      indx = (data.header.seq % len(self.x_noise)-1)
+      data.pose.position.x = data.pose.position.x + self.x_noise[indx]
+      data.pose.position.y = data.pose.position.y + self.y_noise[indx]
+
 
       q_orig = (
         data.pose.orientation.x,

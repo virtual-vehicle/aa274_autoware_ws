@@ -8,16 +8,25 @@
 
 
 
-
-  <!--GPS based localization -->
+  <!-- Option 1: GPS based localization -->
   <group unless="$(arg lidar_localization)" >
-    <!-- add a noise to the gps ground truth (gps_local/pose), instead of the lidar localization  -->
-    <include file="$(find arg_launch)/launch/gps_to_localization_pose.launch" />
+    <!-- add a noise to the gps ground truth (gps_local/pose) -->
+    <include file="$(find arg_launch)/launch/gps_to_localization_pose.launch">
+      <arg name="pose_stddev_x_y" value="0.0" />
+      <arg name="pose_mu_x_y" value="0.0" />
+      <arg name="pose_stddev_yaw" value="0.0" />
+      <arg name="pose_mu_yaw" value="0.0" />
+    </include>
 
+    <!-- Publish TF map -> base_link -->  
+    <include file="$(find arg_launch)/launch/localization/map_base_link_tf_broadcaster.launch">
+      <arg name="topic_name" value="/gps_local/pose"/>
+    </include>
   </group>
 
 
-  <!-- Lidar based localization  -->
+
+  <!-- Option 2: Lidar based localization  -->
   <group if="$(arg lidar_localization)" >
 
     <!-- transform lidar raw data to point cloud -->
@@ -28,30 +37,48 @@
     <!-- hack to modify easily the voxel_leaf_size, NOT THE BEST PRACTICE -->
     <node pkg="rostopic" type="rostopic" name="config_voxel_grid_filter"
             args="pub -l /config/voxel_grid_filter autoware_config_msgs/ConfigVoxelGridFilter
-            '{ voxel_leaf_size: 2.0, measurement_range: 200.0}' "
+            '{ voxel_leaf_size: 2.0, measurement_range: 100.0}' "
     />
     <include file="$(find points_downsampler)/launch/points_downsample.launch">
       <arg name="points_topic" value="/os1_cloud_node/points" />
     </include>
 
     <!-- ndt_matching -->
-    <include  file="$(find arg_launch)/launch/localization/ndt_localization.launch">
+    <include file="$(find arg_launch)/launch/localization/ndt_localization.launch">
       <arg name="use_odom" default="true" />
       <arg name="points_topic_in" value="/filtered_points" />    
       <arg name="publish_tf" value="false" /> 
     </include>
 
+    <!-- Publish TF map -> base_link -->  
+    <include file="$(find arg_launch)/launch/localization/map_base_link_tf_broadcaster.launch">
+      <arg name="topic_name" value="/ekf_pose"/>
+    </include>
   </group>
 
 
+
+
   <!-- ekf_localizer -->
-  <include file="$(find arg_launch)/launch/ekf_localizer.launch" />
+  <include file="$(find arg_launch)/launch/ekf_localizer.launch" >
+    <!-- for Pose measurement -->
+    <arg name="input_pose_name" value="/localization_pose"/>        <!-- possibilities: /not_used     /localization_pose -->
+    <arg name="pose_rate" value="20.0"/>
+    <arg name="pose_stddev_x" value="0.25"/>
+    <arg name="pose_stddev_y" value="0.25"/>
+    <arg name="pose_stddev_yaw" value="0.025"/>
+
+    <!-- for twist measurement -->
+    <arg name="input_twist_name" value="/devbot/twist"/>            <!-- possibilities: /not_used     /devbot/twist -->
+    <arg name="twist_rate" value="200.0"/>
+    <arg name="twist_stddev_vx" value="0.1"/>
+    <arg name="twist_stddev_wz" value="0.01"/>
+  </include>
 
 
-    <!-- Publish TF map -> base_link -->
-    <include  file="$(find arg_launch)/launch/localization/map_base_link_tf_broadcaster.launch">
-        <arg name="topic_name" value="/gps_local/pose"/>
-    </include>
+
+
+
 
 
 
@@ -66,17 +93,35 @@
   <node pkg="map_file" type="points_map_loader" name="points_map_loader" args="noupdate $(find arg_data_croix_en_ternois)/pcd/race_track.pcd"/>
 
    
-  <!-- Set start position based on GPS -->
+  <!-- Set start position based on GPS data -->
   <include file="$(find arg_launch)/launch/localization/init_position.launch" />
+
 
   <!-- RVIZ  -->
   <include file="$(find arg_launch)/launch/rviz/rviz_Devbot.launch">
     <arg name="rviz_displayed" value="true"/>
   </include>
 
+
   <!-- Script to evaluate the localization performance -->
   <node pkg="arg_launch" type="localization_evaluation.py" name="localization_evaluation" output="log" respawn="true"/>
 
+
+  <!-- Publish odom topic for (gps_pose, localization_pose and ekf_pose -->
+  <node pkg="arg_launch" type="odom_publisher.py" name="odom_publisher_gps" output="log" respawn="true">
+    <param name="topic_pose" value="/gps_local/pose"/>
+    <param name="topic_odom" value="/gps_local/odom"/>
+  </node>
+
+  <node pkg="arg_launch" type="odom_publisher.py" name="odom_publisher_ndt" output="log" respawn="true">
+    <param name="topic_pose" value="/localization_pose"/>
+    <param name="topic_odom" value="/localization_odom"/>
+  </node>
+
+  <node pkg="arg_launch" type="odom_publisher.py" name="odom_publisher_ekf" output="log" respawn="true">
+    <param name="topic_pose" value="/ekf_pose"/>
+    <param name="topic_odom" value="/ekf_odom"/>
+  </node>
 
 </launch>
 
