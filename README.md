@@ -6,6 +6,9 @@ Stanford Lecture AA274 / Graz University of Technology
 ![Autonomous Racing Graz / Localization](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/docs/ARG_Localization.jpg?raw=true "Autonomous Racing Graz / Localiztion")
 
 
+
+[M. Schratter, J. Zubaca, K. Mautner-Lassnig, T. Renzler, M. Kirchengast, S. Loigge, M. Stolz and D. Watzenig, Lidar-based Mapping and Localization for Autonomous Racing, Opportunities and Challenges with Autonomous Racing, ICRA, 2021.](https://linklab-uva.github.io/icra-autonomous-racing/contributed_papers/paper4.pdf)
+
 ## Preconditions
 - Ubuntu 18.04 (64 bit) is installed --> http://releases.ubuntu.com/18.04/
 - ROS (melodic) is installed --> http://wiki.ros.org/melodic/Installation/Ubuntu
