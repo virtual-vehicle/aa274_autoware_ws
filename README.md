@@ -35,7 +35,7 @@ git clone https://github.com/autonomousracing-ai/arg_localization ~/ros/aa274_au
 cd ~/ros/aa274_autoware_ws/src/arg_data_croix_en_ternois/bagfile
 tar -xvf devbot_lap0.tar.xz
 ```
-Setup for environment which includes several aliases, environment variables, and sources 
+Add to .bashrc the source of the workspace
 ```
 echo "export AA274_WS_DIR=~/ros/aa274_autoware_ws" >> ~/.bashrc
 echo "source ~/ros/aa274_autoware_ws/environment.sh" >> ~/.bashrc
