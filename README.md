@@ -72,11 +72,11 @@ roslaunch arg_data_croix_en_ternois play_rosbag.launch
 ### Terminal 3:
 GPS-based localization
 ```
-roslaunch arg_demos arg_demo_lidar_localization.launch
+roslaunch arg_demos arg_demo_localization.launch
 ```
 or Lidar-based localization
 ```
-roslaunch arg_demos arg_demo_lidar_localization.launch lidar_localization:=true
+roslaunch arg_demos arg_demo_localization.launch lidar_localization:=true
 ```
 
 You must hit the **space key** to start to play the rosbag.
