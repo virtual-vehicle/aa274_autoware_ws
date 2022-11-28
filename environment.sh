@@ -11,10 +11,3 @@ elif [ $SHELL = '/bin/bash' ]; then
 else
   echo "no zsh or bash used"
 fi
-
-# workspace specific
-alias makeaa274="cd $AA274_WS_DIR && catkin_make -DCMAKE_BUILD_TYPE=Release ; cd -"
-alias cleanaa274="cd $AA274_WS_DIR && catkin_make clean ; cd -"
-
-
-
