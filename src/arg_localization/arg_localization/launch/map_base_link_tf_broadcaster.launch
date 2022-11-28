@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="topic_name" default="/gps_local/pose"/>
+
+  <node pkg="arg_localization" type="map_base_link_tf_broadcaster.py" name="map_base_link_tf_broadcaster" output="screen" respawn="true">
+    <param name="topic_name" value="$(arg topic_name)"/>
+  </node>
+
+</launch>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="pose_stddev_x_y" default="0.0" />
+  <arg name="pose_mu_x_y" default="0.0" />
+  <arg name="pose_stddev_yaw" default="0.0" />
+  <arg name="pose_mu_yaw" default="0.0" />
+
+  <node pkg="arg_localization" type="gps_to_localization_pose.py" name="gps_to_localization_pose" output="screen" respawn="true">
+    <param name="pose_stddev_x_y" value="$(arg pose_stddev_x_y)" />
+    <param name="pose_mu_x_y" value="$(arg pose_mu_x_y)" />
+    <param name="pose_stddev_yaw" value="$(arg pose_stddev_yaw)" />
+    <param name="pose_mu_yaw" value="$(arg pose_mu_yaw)" />
+  </node>
+
+</launch>

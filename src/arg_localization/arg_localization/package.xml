@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>arg_localization</name>
+  <version>0.0.0</version>
+  <description>The arg_localization package</description>
+
+  <maintainer email="markus.schratter@v2c2.at">Markus Schratter</maintainer>
+
+  <url type="website">https://autonomousracing.ai/</url>
+  
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+</package>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="node_name" default="ndt_matching" />
+  <arg name="method_type" default="0" /> <!-- pcl_generic=0, pcl_anh=1, pcl_anh_gpu=2, pcl_openmp=3 -->
+  <arg name="mod_keep_2D" default="false" />
+  <arg name="points_topic" default="/sensing/lidar/localization/downsample/pointcloud" /> <!-- /filtered_points -->
+  <arg name="points_map" default="/map/pointcloud_map" />      <!-- /points_map -->
+  <arg name="output_frame_id" default="base_link" />           <!-- base_link -->
+  <arg name="input_frame_id" default="lidar_top/os_sensor" />  <!-- lidar_top/os_sensor -->
+  <arg name="tf_lookup" default="true" />
+
+  <arg name="publish_tf" default="true" />
+  <arg name="output_debug" default="log" />                    <!-- log / screen -->
+
+  <arg name="use_gnss" default="0" />
+  <arg name="use_odom" default="true" />
+  <arg name="odom_topic" default="/vehicle/odom" />
+  <arg name="use_imu" default="false" />
+  <arg name="imu_upside_down" default="false" />
+  <arg name="imu_topic" default="/imu_data" />
+  <arg name="queue_size" default="1" />
+  <arg name="offset" default="linear" />
+  <arg name="get_height" default="false" />
+  <arg name="use_local_transform" default="false" />
+  <arg name="sync" default="false" />
+  <arg name="output_log_data" default="false" />
+
+
+  <arg name="dir_tf_x" value="1.595" />
+  <arg name="dir_tf_y" value="0.0" />
+  <arg name="dir_tf_z" value="1.66" />
+  <arg name="tf_roll" default="0.0" />
+  <arg name="tf_pitch" default="0.0" />
+  <arg name="tf_yaw" default="0.0" />
+
+  <arg name="initial_pose_x" value="0.0" />
+  <arg name="initial_pose_y" value="0.0" />
+  <arg name="initial_pose_z" value="0.0" />
+  <arg name="initial_pose_roll" value="0.0" />
+  <arg name="initial_pose_pitch" value="0.0" />
+  <arg name="initial_pose_yaw" default="0.0" />
+  <arg name="ndt_res" value="1.0" />
+  <arg name="max_iter" value="30" />
+  <arg name="step_size" value="0.1" />
+  <arg name="trans_eps" value="0.01" />
+  <arg name="enable_filtering" value="true" />
+  <arg name="input_voxel_filter" value="0.5" />
+  <arg name="max_range" value="125.0" />
+  <arg name="min_range" value="2.0" />
+
+
+  <node pkg="lidar_localizer" type="ndt_matching" name="$(arg node_name)" output="$(arg output_debug)" respawn="true">
+    <param name="output_frame_id" value="$(arg output_frame_id)" />
+    <param name="input_frame_id" value="$(arg input_frame_id)" />
+    <param name="tf_lookup" value="$(arg tf_lookup)" />
+
+    <param name="method_type" value="$(arg method_type)" />
+    <param name="mod_keep_2D" value="$(arg mod_keep_2D)" />
+    <param name="use_gnss" value="$(arg use_gnss)" />
+    <param name="use_odom" value="$(arg use_odom)" />
+    <param name="use_imu" value="$(arg use_imu)" />
+    <param name="imu_upside_down" value="$(arg imu_upside_down)" />
+    <param name="imu_topic" value="$(arg imu_topic)" />
+    <param name="queue_size" value="$(arg queue_size)" />
+    <param name="offset" value="$(arg offset)" />
+    <param name="get_height" value="$(arg get_height)" />
+    <param name="use_local_transform" value="$(arg use_local_transform)" />
+    <param name="output_log_data" value="$(arg output_log_data)" />
+    <param name="tf_x" value="$(arg dir_tf_x)" />
+    <param name="tf_y" value="$(arg dir_tf_y)" />
+    <param name="tf_z" value="$(arg dir_tf_z)" />
+    <param name="tf_roll" value="$(arg tf_roll)" />
+    <param name="tf_pitch" value="$(arg tf_pitch)" />
+    <param name="tf_yaw" value="$(arg tf_yaw)" />
+    <param name="initial_pose_x" value="$(arg initial_pose_x)" />
+    <param name="initial_pose_y" value="$(arg initial_pose_y)" />
+    <param name="initial_pose_z" value="$(arg initial_pose_z)" />
+    <param name="initial_pose_roll" value="$(arg initial_pose_roll)" />
+    <param name="initial_pose_pitch" value="$(arg initial_pose_pitch)" />
+    <param name="initial_pose_yaw" value="$(arg initial_pose_yaw)" />
+    <param name="ndt_res" value="$(arg ndt_res)" />
+    <param name="max_iter" value="$(arg max_iter)" />
+    <param name="step_size" value="$(arg step_size)" />
+    <param name="trans_eps" value="$(arg trans_eps)" />
+    <param name="enable_filtering" value="$(arg enable_filtering)" />
+    <param name="input_voxel_filter" value="$(arg input_voxel_filter)" />
+    <param name="max_range" value="$(arg max_range)" />
+    <param name="min_range" value="$(arg min_range)" />
+
+
+    <remap from="/points_raw" to="$(arg points_topic)" />
+    <remap from="/points_map" to="$(arg points_map)" />
+    <remap from="/odom" to="$(arg odom_topic)" />
+    <remap from="/imu_raw" to="$(arg imu_topic)" />
+    <remap unless="$(arg publish_tf)" from="/tf" to="/tf_ndt" />
+  </node>
+
+</launch>
