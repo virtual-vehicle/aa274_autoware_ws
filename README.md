@@ -38,9 +38,8 @@ tar -xvf devbot_lap0.tar.xz
 ```
 Setup for environment which includes several aliases, environment variables, and sources 
 ```
-echo "export AA274_AUTOWARE_WS_DIR=~/ros/aa274_autoware_ws" >> ~/.bashrc
-echo "source ~/ros/aa274_autoware_ws/extentions.sh" >> ~/.bashrc
-source ~/.bashrc
+echo "export AA274_WS_DIR=~/ros/aa274_autoware_ws" >> ~/.bashrc
+echo "source ~/ros/aa274_autoware_ws/environment.sh" >> ~/.bashrc
 ```	
 **Build the workspace**
 
@@ -48,8 +47,8 @@ Close and open a new terminal to source the Autoware.AI components!
 
 ```
 source /opt/ros/noetic/setup.bash
-cd ~/aa274_autoware_ws/arg_ws
-catkin_make -DCMAKE_BUILD_TYPE=Release
+cd ~/ros/aa274_autoware_ws/
+catkin_make
 ```
 Extract recorded data from the racetrack
 ```
@@ -66,19 +65,21 @@ roscore
 ```
 
 ### Terminal 2:
-GPS-based localization
+Play a rosbag
 ```
-roslaunch arg_launch Devbot_localization.launch
-```
-or Lidar-based localization
-```
-roslaunch arg_launch Devbot_localization.launch lidar_localization:=true
+roslaunch arg_data_croix_en_ternois play_rosbag.launch 
 ```
 
 ### Terminal 3:
+GPS-based localization
 ```
-roslaunch arg_launch Play_rosbag.launch
+roslaunch arg_demos arg_demo_lidar_localization.launch
 ```
+or Lidar-based localization
+```
+roslaunch arg_demos arg_demo_lidar_localization.launch lidar_localization:=true
+```
+
 You must hit the **space key** to start to play the rosbag.
 
 ### Possible modifications can be performed:
