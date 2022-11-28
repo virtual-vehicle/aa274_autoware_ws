@@ -82,15 +82,10 @@ roslaunch arg_demos arg_demo_lidar_localization.launch lidar_localization:=true
 You must hit the **space key** to start to play the rosbag.
 
 ### Possible modifications can be performed:
-- [Adding noise to the GPS data](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/src/arg_localization/arg_launch/launch/Devbot_localization.launch#L14)
-- [Activate/deactivate the input pose for the EKF](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/src/arg_localization/arg_launch/launch/Devbot_localization.launch#L65)
-- [Activate/deactivate the input twist for the EKF](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/src/arg_localization/arg_launch/launch/Devbot_localization.launch#L72)
-- [Modify the standard deviation parameters for the input pose](https://github.com/virtual-vehicle/aa274_autoware_ws/blob/master/src/arg_localization/arg_launch/launch/Devbot_localization.launch#L76)
+- [Adding noise to the GPS data](https://github.com/autonomousracing-ai/arg_localization/blob/main/arg_localization/launch/gps_pose_estimator.launch#L4)
+- [Activate/deactivate the input pose for the EKF](https://github.com/autonomousracing-ai/arg_demos/blob/main/launch/arg_demo_localization.launch#L81)
+- [Activate/deactivate the input twist for the EKF](https://github.com/autonomousracing-ai/arg_demos/blob/main/launch/arg_demo_localization.launch#L88)
+- [Modify the standard deviation parameters for the input pose](https://github.com/autonomousracing-ai/arg_demos/blob/main/launch/arg_demo_localization.launch#L83)
 
 
-# Demo Path Planning 
-### Terminal 1:
-```
-roslaunch vifware_launch simulation.launch
-```
 
