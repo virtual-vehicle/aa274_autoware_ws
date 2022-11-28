@@ -29,7 +29,6 @@ Clone repository
 git clone https://github.com/virtual-vehicle/aa274_autoware_ws.git ~/ros/aa274_autoware_ws
 git clone https://github.com/autonomousracing-ai/arg_demos ~/ros/aa274_autoware_ws/src/arg_demos
 git clone https://github.com/autonomousracing-ai/arg_devbot_description ~/ros/aa274_autoware_ws/src/arg_devbot_description
-git clone https://github.com/autonomousracing-ai/arg_lidar_distortion_correction ~/ros/aa274_autoware_ws/src/arg_lidar_distortion_correction
 git clone https://github.com/autonomousracing-ai/arg_data_croix_en_ternois ~/ros/aa274_autoware_ws/src/arg_data_croix_en_ternois
 git clone https://github.com/autonomousracing-ai/arg_localization ~/ros/aa274_autoware_ws/src/arg_localization 
 
