@@ -10,37 +10,16 @@ Stanford Lecture AA274 / Graz University of Technology
 [M. Schratter, J. Zubaca, K. Mautner-Lassnig, T. Renzler, M. Kirchengast, S. Loigge, M. Stolz and D. Watzenig, Lidar-based Mapping and Localization for Autonomous Racing, Opportunities and Challenges with Autonomous Racing, ICRA, 2021.](https://linklab-uva.github.io/icra-autonomous-racing/contributed_papers/paper4.pdf)
 
 ## Preconditions
-- Ubuntu 18.04 (64 bit) is installed --> http://releases.ubuntu.com/18.04/
-- ROS (melodic) is installed --> http://wiki.ros.org/melodic/Installation/Ubuntu
-
-# Install Autoware.AI by source
-(https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/Source-Build)
+- Ubuntu 20.04 (64 bit) is installed --> http://releases.ubuntu.com/20.04/
+- ROS (noetix) is installed --> http://wiki.ros.org/noetic/Installation/Ubuntu
 
 Installation of required packages
 ```
 sudo apt update
 sudo apt install -y python-catkin-pkg python-rosdep ros-$ROS_DISTRO-catkin python-catkin-tools
 sudo apt install -y python3-pip python3-colcon-common-extensions python3-setuptools python3-vcstool
-sudo apt install ros-$ROS_DISTRO-lanelet2-*
 sudo apt install -y git-lfs
 pip3 install -U setuptools
-```
-Create workspace for Autoware.AI
-```
-mkdir -p ~/ros/autoware.ai/src
-cd ~/ros/autoware.ai
-```
-Download the workspace configuration for Autoware.AI
-```
-wget -O autoware.ai.repos "https://raw.githubusercontent.com/Autoware-AI/autoware.ai/1.14.0/autoware.ai.repos?inline=false"
-```
-
-Download Autoware.AI repositories into the workspace, install dependencies using rosdep and compile it
-```
-vcs import src < autoware.ai.repos
-rosdep update
-rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
-catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
 
@@ -48,25 +27,33 @@ catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release
 Clone repository
 ```
 git clone https://github.com/virtual-vehicle/aa274_autoware_ws.git ~/ros/aa274_autoware_ws
-cd ~/ros/aa274_autoware_ws
-source ~/ros/autoware.ai/devel/setup.bash
-rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+git clone https://github.com/autonomousracing-ai/arg_demos ~/ros/aa274_autoware_ws/src/arg_demos
+git clone https://github.com/autonomousracing-ai/arg_devbot_description ~/ros/aa274_autoware_ws/src/arg_devbot_description
+git clone https://github.com/autonomousracing-ai/arg_lidar_distortion_correction ~/ros/aa274_autoware_ws/src/arg_lidar_distortion_correction
+git clone https://github.com/autonomousracing-ai/arg_data_croix_en_ternois ~/ros/aa274_autoware_ws/src/arg_data_croix_en_ternois
+git clone https://github.com/autonomousracing-ai/arg_localization ~/ros/aa274_autoware_ws/src/arg_localization 
+
+cd ~/ros/aa274_autoware_ws/src/arg_data_croix_en_ternois/bagfile
+tar -xvf devbot_lap0.tar.xz
 ```
 Setup for environment which includes several aliases, environment variables, and sources 
 ```
-./setup_environment.sh
+echo "export AA274_AUTOWARE_WS_DIR=~/ros/aa274_autoware_ws" >> ~/.bashrc
+echo "source ~/ros/aa274_autoware_ws/extentions.sh" >> ~/.bashrc
+source ~/.bashrc
 ```	
 **Build the workspace**
 
 Close and open a new terminal to source the Autoware.AI components!
 
 ```
-cd ~/ros/aa274_autoware_ws
-catkin build
+source /opt/ros/noetic/setup.bash
+cd ~/aa274_autoware_ws/arg_ws
+catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
 Extract recorded data from the racetrack
 ```
-cd ~/ros/aa274_autoware_ws/src/arg_localization/arg_data_croix_en_ternois/bagfile
+cd ~/ros/aa274_autoware_ws/src/arg_data_croix_en_ternois/bagfile
 tar -xvf devbot_lap0.tar.xz
 ```
 
